@@ -1,6 +1,5 @@
 def anagram(s,t):
     map1 = [0] * 256
-    
     for c in s:
         map1[ord(c)] += 1
     
