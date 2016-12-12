@@ -21,8 +21,12 @@ def escape_maze(map, dist_x, dist_y):
     queue.append((0,0))
     
     while len(queue) > 0:
+
+        # get next status
         cur = queue[0]
         queue.pop(0)
+
+        # check visited
         if cur in visited:
             continue
         visited.add(cur)
@@ -30,6 +34,8 @@ def escape_maze(map, dist_x, dist_y):
         # check if success
         # print cur
         if cur[0] == dist_x and cur[1] == dist_y:
+            # return at first reach point,
+            # because data in queue managed level - by level, the first result will be the shortest
             return step_count
 
         if cur[0] >= len(map) or cur[1] >= len(map[0]):
