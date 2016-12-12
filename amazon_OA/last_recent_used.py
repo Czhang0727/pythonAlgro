@@ -6,8 +6,6 @@ class LRU_cache:
             self.value = val
             self.pre = None
             self.next = None
-    
-
     # this is node -1
     
     def __init__(self):
@@ -21,6 +19,8 @@ class LRU_cache:
             print pointer.value,"->",
             pointer = pointer.next
         print "None"
+
+    
 
     def get_val(self, key):
         # check element in hash_map (see if the element in cache)
@@ -76,7 +76,7 @@ lru.set_val(2,"BOB")
 print lru.get_val(2)
 lru.set_val(3,"DREAM")
 lru.set_val(2,"HAHA")
-print lru.get_val(3)
+print lru.get_val(1)
 print lru.get_val(5)
 
 
