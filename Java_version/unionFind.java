@@ -1,25 +1,31 @@
 import java.lang.*;
 
-class unionFind{
-    private int[] father;
-    public unionFind(Object [] arr){
-        this.father = new int[arr.length];
+public class unionFind { 
+
+    int [] father;
+    public unionFind(int n) {
+        // initialize your data structure here.
+        father = new int[n + 1];
     }
-    public int find(int val){
-        if(father[val] != 0){
-            father[val] = find(father[val]);
+    private int find(int x){
+        if (father[x] != 0){
+            int q = find(father[x]);
+            father[x] = q;
+            return q;
         }
-        return father[val];
+        return x;
+        
     }
-    public void union(int a, int b){
-        int root_a = find(a);
-        int root_b = find(b);
-        if (root_a != root_b){
-            father[root_a] = root_b;
+
+    public void union(int a, int b) {
+        // Write your code here
+        if (!query(a, b)){
+            father[find(a)] = find(b);
         }
     }
-
-
-
-
+        
+    public boolean query(int a, int b) {
+        // Write your code here
+        return find(a) == find(b);
+    }
 }
